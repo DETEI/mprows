@@ -16,6 +16,7 @@ module Mprows
     		result_xml = Nokogiri::XML(object_result)
     		result_xml.remove_namespaces!
     		{
+            status:  (result_xml.xpath("//Respuesta").first["status"]),
     	    message: (result_xml.xpath("//Mensaje").text).encode("utf-8")
       		}
 	    end
